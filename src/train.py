@@ -5,7 +5,6 @@ from config import CFG
 # import git
 # import datetime
 
-#print(tf.__version__)
 """
 Dataset load
 """
@@ -48,7 +47,6 @@ model.compile(optimizer=CFG.optimizer,
 """
 Tensorboard settings
 """
-#
 # repo = git.Repo(search_parent_directories=True)
 # sha = repo.head.object.hexsha[0: 10]  # Take first 10 characters
 # log_dir = "../logs/fit/" + sha + "-" + datetime.datetime.now().strftime("%d%m%Y-%H%M%S")
@@ -60,29 +58,29 @@ Train the model
 """
 #history = model.fit(train_images, train_labels, epochs=CFG.epochs, validation_data=(test_images, test_labels), callbacks= [tensorboard_callback])
 history = model.fit(train_images, train_labels, epochs=CFG.epochs, validation_data=(test_images, test_labels))
-model.save_weights('../models/' + CFG.model_name + '.h5')
+#model.save_weights('../models/' + CFG.model_name + '.h5')
 
 
-if (CFG.debug):
-    #Visualize accuracy vs epoch
-    plt.plot(history.history['accuracy'])
-    plt.plot(history.history['val_accuracy'])
-    plt.title('model accuracy')
-    plt.ylabel('accuracy')
-    plt.xlabel('epoch')
-    plt.legend(['train', 'val'], loc='upper left')
-    plt.savefig("accuracy_epoch.png", dpi=120)
-    plt.show()
-    plt.close()
-    #Visualize loss vs epoch
-    plt.plot(history.history['loss'])
-    plt.plot(history.history['val_loss'])
-    plt.title('model loss')
-    plt.ylabel('loss')
-    plt.xlabel('epoch')
-    plt.legend(['train', 'val'], loc='upper left')
-    plt.savefig("loss_epoch.png", dpi=120)
-    plt.show()
+# if (CFG.debug):
+#     #Visualize accuracy vs epoch
+#     plt.plot(history.history['accuracy'])
+#     plt.plot(history.history['val_accuracy'])
+#     plt.title('model accuracy')
+#     plt.ylabel('accuracy')
+#     plt.xlabel('epoch')
+#     plt.legend(['train', 'val'], loc='upper left')
+#     plt.savefig("accuracy_epoch.png", dpi=120)
+#     plt.show()
+#     plt.close()
+#     #Visualize loss vs epoch
+#     plt.plot(history.history['loss'])
+#     plt.plot(history.history['val_loss'])
+#     plt.title('model loss')
+#     plt.ylabel('loss')
+#     plt.xlabel('epoch')
+#     plt.legend(['train', 'val'], loc='upper left')
+#     plt.savefig("loss_epoch.png", dpi=120)
+#     plt.show()
 
 
 """
