@@ -60,7 +60,7 @@ Train the model
 """
 #history = model.fit(train_images, train_labels, epochs=CFG.epochs, validation_data=(test_images, test_labels), callbacks= [tensorboard_callback])
 history = model.fit(train_images, train_labels, epochs=CFG.epochs, validation_data=(test_images, test_labels))
-model.save_weights('../models/' + CFG.model_name + '.h5')
+#model.save_weights('../models/' + CFG.model_name + '.h5')
 
 
 if (CFG.debug):
