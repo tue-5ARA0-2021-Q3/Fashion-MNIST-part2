@@ -21,12 +21,12 @@ jobs:
           pip install -r requirements.txt
           python src/train.py
         
-#       - name: Write CML report
-#         env:
-#           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         run: |
-#           # Post reports as comments in GitHub PRs
-#           echo "##Model visualization" >> report.md
-#           cml-publish accuracy_epoch.png --md >> report.md
-#           cml-publish loss_epoch.png --md >> report.md
-#           cml-send-comment report.md
+      - name: Write CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Post reports as comments in GitHub PRs
+          echo "Model visualization" >> report.md
+          cml-publish accuracy_epoch.png --md >> report.md
+          cml-publish loss_epoch.png --md >> report.md
+          cml-send-comment report.md
